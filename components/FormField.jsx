@@ -1,9 +1,9 @@
 import { View, Text, TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 const FormField = ({title, value, placeholder, handleChangeText, otherStyles, ...props}) => {
 
-    
+    const [showPassword, setshowPassword] = useState(false)
   return (
     <View className={`space-y-2  ${otherStyles}`}>
       <Text className={`text-base text-gray-100 font-pmedium`}>{title}</Text>
@@ -14,6 +14,7 @@ const FormField = ({title, value, placeholder, handleChangeText, otherStyles, ..
          placeholder={placeholder}
          placeholderTextColor="#7b7b8b"
          onChangeText={handleChangeText}
+         secureTextEntry={title === 'Password' && !showPassword}
        />
       </View>
     </View>
